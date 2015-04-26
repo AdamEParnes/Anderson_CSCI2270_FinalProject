@@ -72,6 +72,7 @@ int main(int argc, char *argv[])
 
         switch (selection) {
         case 1:
+            //Add Movie
             std::cout << "Title: ";
             std::cin.ignore();
             getline(std::cin, title);
@@ -87,6 +88,7 @@ int main(int argc, char *argv[])
             priceTree.addMovieByPrice(title, year, rating, price);
             break;
         case 2:
+            //Delete Movie
             std::cout << "Title: ";
             std::cin.ignore();
             getline(std::cin, title);
@@ -100,6 +102,7 @@ int main(int argc, char *argv[])
             }
             break;
         case 3:
+            //Find Movie
             std::cout << "Title: ";
             std::cin.ignore();
             getline(std::cin, title);
@@ -108,9 +111,11 @@ int main(int argc, char *argv[])
             }
             break;
         case 4:
+            //Count Movies
             std::cout << "The tree has " << tree.countMovies() << " movies.\n";
             break;
         case 5:
+            //Sort by Title
             std::cout << "======SORT BY TITLE======\n";
             std::cout << "1. Ascending Order\n";
             std::cout << "2. Descending Order\n";
@@ -128,6 +133,7 @@ int main(int argc, char *argv[])
             }
             break;
         case 6:
+            //Sort by Year
             std::cout << "=======SORT BY YEAR======\n";
             std::cout << "1. Ascending Order\n";
             std::cout << "2. Descending Order\n";
@@ -145,6 +151,7 @@ int main(int argc, char *argv[])
             }
             break;
         case 7:
+            //Sort by Rating
             std::cout << "======SORT BY RATING=====\n";
             std::cout << "1. Ascending Order\n";
             std::cout << "2. Descending Order\n";
@@ -162,6 +169,7 @@ int main(int argc, char *argv[])
             }
             break;
         case 8:
+            //Sort by Price
             std::cout << "======SORT BY PRICE======\n";
             std::cout << "1. Ascending Order\n";
             std::cout << "2. Descending Order\n";
@@ -179,9 +187,11 @@ int main(int argc, char *argv[])
             }
             break;
         case 9:
+            //Print Inventory
             tree.printInventory();
             break;
         case 0:
+            //Quit
             return 0;
             break;
         default:
