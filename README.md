@@ -17,5 +17,6 @@ Linux
 Nels Anderson
 ## Contributors
 Nels Anderson
+Adam Parnes
 ## Open issues/bugs
 N/A
