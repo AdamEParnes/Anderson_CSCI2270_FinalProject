@@ -16,7 +16,6 @@ Linux
 ## Group Members
 Nels Anderson
 ## Contributors
-Nels Anderson
-Adam Parnes
+Nels Anderson, Adam Parnes
 ## Open issues/bugs
 N/A
