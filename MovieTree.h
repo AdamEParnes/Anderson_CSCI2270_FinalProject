@@ -49,10 +49,8 @@ private:
 public:
     MovieTree();
     virtual ~MovieTree();
-    void addMovieByTitle(std::string, int, int, int);
-    void addMovieByYear(std::string, int, int, int);
-    void addMovieByRating(std::string, int, int, int);
-    void addMovieByPrice(std::string, int, int, int);
+    void addMovie(std::string, int, int, int, char);
+    bool nodeComparison(char mode, Movie*, Movie*);
     bool deleteMovie(std::string);
     bool findMovie(std::string);
     int countMovies();

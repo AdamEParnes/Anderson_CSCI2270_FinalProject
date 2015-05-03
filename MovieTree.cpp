@@ -35,7 +35,7 @@ The ends of the tree are nil.
 Postcondition:
 Movie added to the tree in correct position.
 */
-void MovieTree::addMovieByTitle(std::string title, int year, int rating, int price)
+void MovieTree::addMovie(std::string title, int year, int rating, int price, char mode)
 {
     Movie *newMovie = new Movie(title, year, rating, price);
 
@@ -49,7 +49,7 @@ void MovieTree::addMovieByTitle(std::string title, int year, int rating, int pri
         Movie *m = newMovie;
 
         while (p != nil) {
-            if (strcmp((p->title).c_str(), (m->title).c_str()) > 0) {
+            if (nodeComparison(mode, m, p) == true) {
                 if (p->left != nil) {
                     p = p->left;
                 } else {
@@ -75,171 +75,54 @@ void MovieTree::addMovieByTitle(std::string title, int year, int rating, int pri
 }
 
 /*
-void MovieTree::addMovieByYear(std::string, int, int, int)
+bool MovieTree::nodeComparison(char mode, Movie *m, Movie *p)
 
 Description:
-Adds a movie to the tree using the movie's year as the
-attribute being sorted.
+Compares one value of node m to the corresponding value of p.
 
 Example:
-MovieTree tree;
-tree.addMovieByYear("Back to the Future", 1985, 96, 5);
+Movie *m, *p;
+char mode = 't';
+nodeComparison(mode, m, p);
 
 Precondition:
-The ends of the tree are nil.
+Both nodes are not nil and have values for title, year,
+rating or price.
 
 Postcondition:
-Movie added to the tree in correct position.
+Returns true if the value of m is lower than the value of p.
+Returns false otherwise.
 */
-void MovieTree::addMovieByYear(std::string title, int year, int rating, int price)
+bool MovieTree::nodeComparison(char mode, Movie *m, Movie *p)
 {
-    Movie *newMovie = new Movie(title, year, rating, price);
+    bool goLeft = false;
 
-    if (root == nil) {
-        newMovie->parent = nil;
-        newMovie->left = nil;
-        newMovie->right = nil;
-        root = newMovie;
-    } else {
-        Movie *p = root;
-        Movie *m = newMovie;
-
-        while (p != nil) {
-            if (p->year > m->year) {
-                if (p->left != nil) {
-                    p = p->left;
-                } else {
-                    p->left = m;
-                    break;
-                }
-            } else {
-                if (p->right != nil) {
-                    p = p->right;
-                } else {
-                    p->right = m;
-                    break;
-                }
-            }
+    switch (mode) {
+    case 't':
+        if (strcmp((p->title).c_str(), (m->title).c_str()) > 0) {
+            goLeft = true;
         }
-
-        m->parent = p;
-        m->left = nil;
-        m->right = nil;
+        break;
+    case 'y':
+        if (p->year > m->year) {
+            goLeft = true;
+        }
+        break;
+    case 'r':
+        if (p->rating > m->rating) {
+            goLeft = true;
+        }
+        break;
+    case 'p':
+        if (p->price > m->price) {
+            goLeft = true;
+        }
+        break;
+    default:
+        break;
     }
 
-    fixUpAdd(newMovie);
-}
-
-/*
-void MovieTree::addMovieByRating(std::string, int, int, int)
-
-Description:
-Adds a movie to the tree using the movie's rating as the
-attribute being sorted.
-
-Example:
-MovieTree tree;
-tree.addMovieByRating("Back to the Future", 1985, 96, 5);
-
-Precondition:
-The ends of the tree are nil.
-
-Postcondition:
-Movie added to the tree in correct position.
-*/
-void MovieTree::addMovieByRating(std::string title, int year, int rating, int price)
-{
-    Movie *newMovie = new Movie(title, year, rating, price);
-
-    if (root == nil) {
-        newMovie->parent = nil;
-        newMovie->left = nil;
-        newMovie->right = nil;
-        root = newMovie;
-    } else {
-        Movie *p = root;
-        Movie *m = newMovie;
-
-        while (p != nil) {
-            if (p->rating > m->rating) {
-                if (p->left != nil) {
-                    p = p->left;
-                } else {
-                    p->left = m;
-                    break;
-                }
-            } else {
-                if (p->right != nil) {
-                    p = p->right;
-                } else {
-                    p->right = m;
-                    break;
-                }
-            }
-        }
-
-        m->parent = p;
-        m->left = nil;
-        m->right = nil;
-    }
-
-    fixUpAdd(newMovie);
-}
-
-/*
-void MovieTree::addMovieByPrice(std::string, int, int, int)
-
-Description:
-Adds a movie to the tree using the movie's price as the
-attribute being sorted.
-
-Example:
-MovieTree tree;
-tree.addMovieByPrice("Back to the Future", 1985, 96, 5);
-
-Precondition:
-The ends of the tree are nil.
-
-Postcondition:
-Movie added to the tree in correct position.
-*/
-void MovieTree::addMovieByPrice(std::string title, int year, int rating, int price)
-{
-    Movie *newMovie = new Movie(title, year, rating, price);
-
-    if (root == nil) {
-        newMovie->parent = nil;
-        newMovie->left = nil;
-        newMovie->right = nil;
-        root = newMovie;
-    } else {
-        Movie *p = root;
-        Movie *m = newMovie;
-
-        while (p != nil) {
-            if (p->price > m->price) {
-                if (p->left != nil) {
-                    p = p->left;
-                } else {
-                    p->left = m;
-                    break;
-                }
-            } else {
-                if (p->right != nil) {
-                    p = p->right;
-                } else {
-                    p->right = m;
-                    break;
-                }
-            }
-        }
-
-        m->parent = p;
-        m->left = nil;
-        m->right = nil;
-    }
-
-    fixUpAdd(newMovie);
+    return goLeft;
 }
 
 /*

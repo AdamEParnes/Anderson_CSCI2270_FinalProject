@@ -32,6 +32,7 @@ int main(int argc, char *argv[])
 
             getline(ss, word, ',');
             title = word;
+            std::cout<<title<<std::endl;
 
             getline(ss, word, ',');
             std::istringstream y(word);
@@ -45,10 +46,10 @@ int main(int argc, char *argv[])
             std::istringstream p(word);
             p >> price;
 
-            tree.addMovieByTitle(title, year, rating, price);
-            yearTree.addMovieByYear(title, year, rating, price);
-            ratingTree.addMovieByRating(title, year, rating, price);
-            priceTree.addMovieByPrice(title, year, rating, price);
+            tree.addMovie(title, year, rating, price, 't');
+            yearTree.addMovie(title, year, rating, price, 'y');
+            ratingTree.addMovie(title, year, rating, price, 'r');
+            priceTree.addMovie(title, year, rating, price, 'p');
         }
 
         io.close();
@@ -82,10 +83,10 @@ int main(int argc, char *argv[])
             std::cin >> rating;
             std::cout << "Price: $";
             std::cin >> price;
-            tree.addMovieByTitle(title, year, rating, price);
-            yearTree.addMovieByYear(title, year, rating, price);
-            ratingTree.addMovieByRating(title, year, rating, price);
-            priceTree.addMovieByPrice(title, year, rating, price);
+            tree.addMovie(title, year, rating, price, 't');
+            yearTree.addMovie(title, year, rating, price, 'y');
+            ratingTree.addMovie(title, year, rating, price, 'r');
+            priceTree.addMovie(title, year, rating, price, 'p');
             break;
         case 2:
             //Delete Movie
