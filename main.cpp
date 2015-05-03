@@ -61,10 +61,10 @@ int main(int argc, char *argv[])
         std::cout << "2. Delete Movie\n";
         std::cout << "3. Find Movie\n";
         std::cout << "4. Count Movies\n";
-        std::cout << "5. Sort by Title\n";
-        std::cout << "6. Sort by Year\n";
-        std::cout << "7. Sort by Rating\n";
-        std::cout << "8. Sort by Price\n";
+        std::cout << "5. List by Title\n";
+        std::cout << "6. List by Year\n";
+        std::cout << "7. List by Rating\n";
+        std::cout << "8. List by Price\n";
         std::cout << "9. Print Inventory\n";
         std::cout << "0. Quit\n";
 
@@ -116,8 +116,8 @@ int main(int argc, char *argv[])
             std::cout << "The tree has " << tree.countMovies() << " movies.\n";
             break;
         case 5:
-            //Sort by Title
-            std::cout << "======SORT BY TITLE======\n";
+            //List by Title
+            std::cout << "======LIST BY TITLE======\n";
             std::cout << "1. Ascending Order\n";
             std::cout << "2. Descending Order\n";
             std::cin >> selection;
@@ -134,8 +134,8 @@ int main(int argc, char *argv[])
             }
             break;
         case 6:
-            //Sort by Year
-            std::cout << "=======SORT BY YEAR======\n";
+            //List by Year
+            std::cout << "=======LIST BY YEAR======\n";
             std::cout << "1. Ascending Order\n";
             std::cout << "2. Descending Order\n";
             std::cin >> selection;
@@ -152,8 +152,8 @@ int main(int argc, char *argv[])
             }
             break;
         case 7:
-            //Sort by Rating
-            std::cout << "======SORT BY RATING=====\n";
+            //List by Rating
+            std::cout << "======LIST BY RATING=====\n";
             std::cout << "1. Ascending Order\n";
             std::cout << "2. Descending Order\n";
             std::cin >> selection;
@@ -170,8 +170,8 @@ int main(int argc, char *argv[])
             }
             break;
         case 8:
-            //Sort by Price
-            std::cout << "======SORT BY PRICE======\n";
+            //List by Price
+            std::cout << "======LIST BY PRICE======\n";
             std::cout << "1. Ascending Order\n";
             std::cout << "2. Descending Order\n";
             std::cin >> selection;
